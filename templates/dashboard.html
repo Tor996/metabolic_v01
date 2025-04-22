@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Metabolic</title>
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Metabolic App</div>
+            <nav>
+                <ul>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/logout" class="btn btn-danger">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dashboard">
+            <div class="dashboard-header">
+                <h1 class="welcome-message">Welcome, {{.Username}}!</h1>
+            </div>
+            
+            <div class="dashboard-content">
+                <p>This is your protected dashboard. You can only see this page when you're logged in.</p>
+                
+                <h2>What's Next?</h2>
+                <p>This is where you can build your application's main functionality:</p>
+                <ul>
+                    <li>Create and manage user profiles</li>
+                    <li>Add data visualization components</li>
+                    <li>Implement CRUD operations for your app's data</li>
+                    <li>Connect to databases for persistent storage</li>
+                </ul>
+                
+                <h2>Development Progress</h2>
+                <p>Your application has the following features implemented:</p>
+                <ul>
+                    <li>✅ User registration with password hashing</li>
+                    <li>✅ User authentication</li>
+                    <li>✅ Session management with cookies</li>
+                    <li>✅ Protected routes</li>
+                    <li>❌ Database integration (currently using in-memory storage)</li>
+                    <li>❌ Profile management</li>
+                    <li>❌ Data visualization</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Metabolic App - A Go HTMX Application</p>
+        </div>
+    </footer>
+</body>
+</html>
