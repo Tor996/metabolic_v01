@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Serpenter</title>
+    <!-- Include HTMX -->
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">Serpenter App</div>
+            <nav>
+                <ul>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/profile" class="active">Profile</a></li>
+                    <li><a href="/logout" class="btn btn-danger">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile-container">
+            <h1>Your Profile</h1>
+            
+            <!-- Message area for HTMX responses -->
+            <div id="message">{{if .Message}}<div class="{{.MessageType}}">{{.Message}}</div>{{end}}</div>
+            
+            <div class="profile-content">
+                <div class="profile-info">
+                    <h2>Account Information</h2>
+                    <p><strong>Email:</strong> {{.User.Email}}</p>
+                    <p><strong>Account Created:</strong> {{.User.CreatedAt.Format "Jan 02, 2006"}}</p>
+                </div>
+                
+                <div class="profile-edit">
+                    <h2>Edit Email</h2>
+                    <form hx-put="/profile" hx-target="#message" hx-swap="outerHTML">
+                        <!-- CSRF Token -->
+                        {{ if .CSRFToken }}
+                            {{ csrfField .CSRFToken }}
+                        {{ end }}
+                        <div class="form-group">
+                            <label for="email">Email Address:</label>
+                            <input type="email" id="email" name="email" value="{{.User.Email}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="current-password">Current Password:</label>
+                            <input type="password" id="current-password" name="current_password">
+                            <small>Required to save changes</small>
+                        </div>
+                        <button type="submit" class="btn">Save Changes</button>
+                    </form>
+                    
+                    <h2>Change Password</h2>
+                    <form hx-post="/change-password" hx-target="#message" hx-swap="outerHTML">
+                        <!-- CSRF Token -->
+                        {{ if .CSRFToken }}
+                            {{ csrfField .CSRFToken }}
+                        {{ end }}
+                        <div class="form-group">
+                            <label for="old-password">Current Password:</label>
+                            <input type="password" id="old-password" name="current_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password:</label>
+                            <input type="password" id="new-password" name="new_password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm New Password:</label>
+                            <input type="password" id="confirm-password" name="confirm_password" required>
+                        </div>
+                        <button type="submit" class="btn">Change Password</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Serpenter App - A Go HTMX Application</p>
+        </div>
+    </footer>
+</body>
+</html> 

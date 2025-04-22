@@ -54,6 +54,11 @@ nav ul li a:hover {
     color: #3498db;
 }
 
+nav ul li a.active {
+    color: #3498db;
+    font-weight: bold;
+}
+
 .btn {
     display: inline-block;
     padding: 10px 15px;
@@ -77,6 +82,14 @@ nav ul li a:hover {
 
 .btn-danger:hover {
     background-color: #c0392b;
+}
+
+.btn-secondary {
+    background-color: #2ecc71;
+}
+
+.btn-secondary:hover {
+    background-color: #27ae60;
 }
 
 form {
@@ -135,6 +148,50 @@ button:hover {
     color: #e74c3c;
 }
 
+/* Auth Container Styles */
+.auth-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.auth-content {
+    padding: 2rem;
+}
+
+.auth-content h1 {
+    color: #2c3e50;
+    margin-top: 0;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.auth-content p {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 2rem;
+}
+
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.register-link {
+    margin-top: 2rem;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.register-link p {
+    margin-bottom: 0.5rem;
+}
+
+/* Dashboard Styles */
 .dashboard {
     background-color: white;
     border-radius: 5px;
@@ -157,6 +214,63 @@ button:hover {
     color: #2c3e50;
 }
 
+/* Profile Styles */
+.profile-container {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.profile-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.profile-info, .profile-edit {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border-left: 4px solid #3498db;
+}
+
+.profile-info h2 {
+    color: #2c3e50;
+    margin-top: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-edit h2 {
+    margin-top: 30px;
+    color: #2c3e50;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-edit h2:first-child {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group small {
+    display: block;
+    color: #7f8c8d;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     header .container {
@@ -175,5 +289,9 @@ button:hover {
     
     nav ul li {
         margin: 5px 0;
+    }
+    
+    .auth-container {
+        margin: 1rem;
     }
 }
